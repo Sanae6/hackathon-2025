@@ -1,0 +1,4 @@
+const database = {
+  tutors: [],
+  users: [],
+};
