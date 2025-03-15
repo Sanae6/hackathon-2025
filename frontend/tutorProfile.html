@@ -1,17 +1,121 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset='utf-8'>
-  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-  <title>Tutor Profile</title>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <link rel='stylesheet' type='text/css' media='screen' href='styles/styles.css'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutor Profile</title>
+    <link rel="stylesheet" href="/hackathon-2025/frontend/styles/styles.css">
 </head>
 <body>
-	<div id="mainPageStructure">
-		<nav id="navigationBar"></nav> <!--Will be filled with a javascript file-->
-	</div>
+  <div class="profile-container">
+    <h2>Tutor Profile</h2>
+    <div class="profile-card">
+        <div class="profile-header">
+            <input type="file" id="profilePicInput" accept="image/*" hidden>
+            <img src="tutor-placeholder.jpg" alt="Tutor Profile Picture" class="profile-pic" id="profilePic">
+        </div>
+        <div class="profile-details">
+            <div class="detail-row">
+                <label for="tutorName">Name:</label>
+                <input type="text" id="tutorName" value="John Doe" disabled>
+            </div>
+            <div class="detail-row">
+                <label for="tutorSubject">Subject:</label>
+                <input type="text" id="tutorSubject" value="Mathematics" disabled>
+            </div>
+            <div class="detail-row">
+                <label for="tutorBio">Bio:</label>
+                <textarea id="tutorBio" disabled>Experienced math tutor with over 5 years of teaching.</textarea>
+            </div>
+            <div class="detail-row">
+                <label>Availability:</label>
+                <div class="availability-grid">
+                    <div class="day">
+                        <input type="checkbox" id="monday" disabled>
+                        <label for="monday">Monday</label>
+                    </div>
+                    <div class="day">
+                        <input type="checkbox" id="tuesday" disabled>
+                        <label for="tuesday">Tuesday</label>
+                    </div>
+                    <div class="day">
+                        <input type="checkbox" id="wednesday" disabled>
+                        <label for="wednesday">Wednesday</label>
+                    </div>
+                    <div class="day">
+                        <input type="checkbox" id="thursday" disabled>
+                        <label for="thursday">Thursday</label>
+                    </div>
+                    <div class="day">
+                        <input type="checkbox" id="friday" disabled>
+                        <label for="friday">Friday</label>
+                    </div>
+                    <div class="day">
+                        <input type="checkbox" id="saturday" disabled>
+                        <label for="saturday">Saturday</label>
+                    </div>
+                    <div class="day">
+                        <input type="checkbox" id="sunday" disabled>
+                        <label for="sunday">Sunday</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="actions">
+        <button id="editProfileBtn" onclick="toggleEditMode()">Edit Profile</button>
+        <button id="saveProfileBtn" onclick="saveProfile()" style="display: none;">Save Profile</button>
+    </div>
+</div>
 
-	<script src="scripts/navigationBar.js"></script>
+<script>
+    function toggleEditMode() {
+        const isDisabled = document.getElementById("tutorName").disabled;
+        document.getElementById("tutorName").disabled = !isDisabled;
+        document.getElementById("tutorSubject").disabled = !isDisabled;
+        document.getElementById("tutorBio").disabled = !isDisabled;
+        const checkboxes = document.querySelectorAll('.availability-grid input[type="checkbox"]');
+        checkboxes.forEach(checkbox => checkbox.disabled = !isDisabled);
+        document.getElementById("saveProfileBtn").style.display = isDisabled ? "inline-block" : "none";
+        document.getElementById("editProfileBtn").style.display = isDisabled ? "none" : "inline-block";
+        
+        if (isDisabled) {
+            document.getElementById("profilePic").addEventListener("click", changeProfilePic);
+        } else {
+            document.getElementById("profilePic").removeEventListener("click", changeProfilePic);
+        }
+    }
+
+    function changeProfilePic() {
+        document.getElementById('profilePicInput').click();
+    }
+
+    document.getElementById('profilePicInput').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('profilePic').src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+    function saveProfile() {
+        const name = document.getElementById("tutorName").value;
+        const subject = document.getElementById("tutorSubject").value;
+        const bio = document.getElementById("tutorBio").value;
+        const availability = [];
+        const checkboxes = document.querySelectorAll('.availability-grid input[type="checkbox"]');
+        checkboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                availability.push(checkbox.nextElementSibling.innerText);
+            }
+        });
+        
+        alert(`Profile updated successfully!\n\nName: ${name}\nSubject: ${subject}\nBio: ${bio}\nAvailability: ${availability.join(', ')}`);
+        toggleEditMode();
+    }
+</script>
 </body>
 </html>
