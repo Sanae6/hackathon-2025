@@ -1,0 +1,34 @@
+#bookSessionStructure {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+
+}
+
+#bookSessionForm {
+  margin-top: 10vh;
+  height: auto;
+  width: 40%;
+  background-color: rgb(205,205,205);
+  border-radius: 5px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding: 2vh 1vw;
+  row-gap: 1vh;
+}
+
+#bookSessionForm > p {
+  font-size: 200%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  column-gap: 1vw;
+}
+
+#bookSessionForm > p > input {
+  font-size: 90%;
+  
+}

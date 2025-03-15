@@ -6,14 +6,31 @@
   <title>Tutoring Site</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <link rel='stylesheet' type='text/css' media='screen' href='styles/styles.css'>
+  <link rel='stylesheet' type='text/css' media='screen' href='styles/bookSession.css'>
 </head>
 <body>
   <div id="mainPageStructure">
 		<nav id="navigationBar"></nav> <!--Will be filled with a javascript file-->
+    <div id="bookSessionStructure">
+      <form id="bookSessionForm">
+        <h1>Book Session with First Name Last Name</h1>
+        <p>
+          <label for="sessionDate">Date</label>
+          <input type="date" id="sessionDate" name="sessionDate">
+        </p>
+        <p>
+          <label for="sessionTime">Time</label>
+          <input type="time" id="sessionTime" name="sessionTime">
+        </p>
+        <button>Confirm</button>
+      </form>
 
+      
+    </div>
 
 
 	</div>
+  <script src="scripts/database.js"></script>
 	<script src="scripts/navigationBar.js"></script>
 </body>
 </html>

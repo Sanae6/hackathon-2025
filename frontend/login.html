@@ -45,12 +45,14 @@
                         const tutorInfo = await api.loginTutor(firstName.value, lastName.value);
                         console.log(tutorInfo);
                         localStorage.setItem("info", JSON.stringify(Object.assign(tutorInfo, { tutor: true })))
+                        location.href = "/tutorProfile.html";
                     } else {
                         const userInfo = await api.loginUser(firstName.value, lastName.value);
                         console.log(userInfo);
                         localStorage.setItem("info", JSON.stringify(Object.assign(userInfo, { tutor: false })))
+                        location.href = "/tutorList.html";
                     }
-                    location.href = "/tutorProfile.html";
+                    
                 } catch (error) {
                     console.error(error);
                     document.getElementById("error").innerText = "Incorrect credentials!";
