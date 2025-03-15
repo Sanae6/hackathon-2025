@@ -88,7 +88,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url('/hackathon-2025/frontend/img/signupback.jpg'); 
+    background-image: url('/hackathon-2025/frontend/img/blank-papers-multicolor-pencils-grey.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -96,10 +96,9 @@ body {
     width: 100%;
 }
 
-
 .signup-container {
-    background: rgba(255, 255, 255, 0.9); /* Slight transparency */
-    padding: 20px;
+    background: rgba(255, 255, 255, 0.9); 
+    padding: 25px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     width: 350px;
@@ -109,10 +108,10 @@ body {
     justify-content: center;
 }
 
-
 .signup-container h2 {
     text-align: center;
     margin-bottom: 15px;
+    color: #333;
 }
 
 .form-group {
@@ -124,6 +123,7 @@ body {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
+    color: #333;
 }
 
 .form-group input {
@@ -132,10 +132,11 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .signup-btn {
-    width: 100%;
+    width: 70%;
     padding: 10px;
     background-color: #007bff;
     color: white;
@@ -143,9 +144,38 @@ body {
     border-radius: 5px;
     font-size: 1rem;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.2s;
+    margin-top: 10px;
 }
 
 .signup-btn:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
 }
+
+.secondary-btn {
+    background-color: #ccc;
+    color: black;
+}
+
+.secondary-btn:hover {
+    background-color: #999;
+}
+
+.already-user {
+    text-align: center;
+    margin-top: 30px; 
+    font-size: 0.9rem;
+}
+
+.already-user a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.already-user a:hover {
+    text-decoration: underline;
+}
+
+
