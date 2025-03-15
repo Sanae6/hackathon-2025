@@ -27,6 +27,12 @@ router.get("/tutors/login", (req, res) => {
   res.send(tutor);
 })
 
+router.get("/users/login", (req, res) => {
+  const user = database.getUserByName(req.query.firstName, req.query.lastName);
+
+  res.send(user);
+})
+
 router.get("/users/:userId", (req, res) => {
   console.log(req.params.userrId);
   const user = database.getUser(req.params.userId);

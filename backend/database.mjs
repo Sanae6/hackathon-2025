@@ -34,11 +34,13 @@ export function getTutorById(id) {
 export function getTutorByName(firstName, lastName){
   return database.tutors.find((tutor => tutor.firstName === firstName && tutor.lastName === lastName))
 }
-export function getUser(id) {
+export function getUserById(id) {
   const numId = Number(id);
   return database.users.find(user => user.userID === numId);
 }
-
+export function getUserByName(fistName, lastName) {
+  return database.users.find((user => user.firstName === firstName && user.lastName === lastName))
+}
 export function getBooking(id) {
   const numId = Number(id);
   return database.bookings.find(booking => booking.id === numId);
@@ -48,37 +50,37 @@ export function getBooking(id) {
 
 // Tutor Functions
 export function updateTutorPronouns(id, pronouns) {
-  const tutor = getTutor(id);
+  const tutor = getTutorById(id);
   if (tutor !== undefined)
     tutor.pronouns = pronouns;
   save();
 }
 export function updateTutorRating(id, rating) {
-  const tutor = getTutotr(id);
+  const tutor = getTutorById(id);
   if (tutor !== undefined)
     tutor.rating = rating;
   save();
 }
 export function updateTutorGPA(id, gpa) {
-  const tutor = getTutor(id);
+  const tutor = getTutorById(id);
   if (tutor !== undefined)
     tutor.gpa = gpa;
   save();
 }
 export function updateTutorDescription(id, description) {
-  const tutor = getTutor(id);
+  const tutor = getTutorById(id);
   if (tutor !== undefined)
     tutor.description = description;
   save();
 }
 export function updateTutorAvailability(id, availability0 ) {
-  const tutor = getTutor(id);
+  const tutor = getTutorById(id);
   if (tutor !== undefined)
     tutor.availability = availability;
   save();
 }
 export function updateTutorSubject(id, subject){
-  const tutor = getTutor(id);
+  const tutor = getTutorById(id);
   if (tutor !== undefined)
     tutor.subject = subject;
   save();
