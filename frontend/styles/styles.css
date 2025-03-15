@@ -30,9 +30,7 @@ body {
 }
 
 #navigationBar {
-    grid-area: 1 / 1 / 2 / 3;
     display: flex;
-    justify-content: end;
     align-items: center;
     background-color: rgb(7, 78, 48);
     padding: 10px 20px;
@@ -42,40 +40,64 @@ body {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-#navigationBar * {
-    font-weight: bold;
+.navbar-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
 }
 
-#navigationBar > button  {
-    width: auto;
+#navigationBar h1 {
+    color: white;
+    font-size: 22px;
+    margin: 0;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-links.left-links {
+    display: flex;
+    gap: 15px;
+    margin-left: 0;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: white;
+    font-size: 16px;
+    margin-right: 0;
+}
+
+#navigationBar button {
     padding: 10px 20px;
-    font-size: 1rem;
-    background-color: rgb(255, 198, 67);
-    transition: background-color .2s, transform .2s;
+    font-size: 16px;
+    background: linear-gradient(90deg, #fbc531, #e1b12c);
+    transition: all 0.3s;
     color: black;
     border: 2px solid black;
-    border-radius: 20px;
+    border-radius: 25px;
     cursor: pointer;
+    font-weight: bold;
+    outline: none;
 }
 
-#navigationBar > button:hover {
-    background-color: rgb(248, 220, 155);
-    transform: scale(1.05);
+#navigationBar button:hover {
+    background: linear-gradient(90deg, #ffdd59, #f5c34b);
+    transform: scale(1.07);
 }
 
-#navigationBar > button:active {
-    background-color: rgb(251, 236, 201);
+#navigationBar button:active {
+    background: linear-gradient(90deg, #ffec99, #f8d365);
     transform: scale(0.98);
 }
 
-.seperationPoint {
-    margin-left: auto;
-}
-
-#navigationBar > p, #name {
-    width: fit-content;
-    color: white;
-}
 /* 
 Signup page Css below
 */
@@ -300,7 +322,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-image: none;
+ 
 }
 
 .booking-container {

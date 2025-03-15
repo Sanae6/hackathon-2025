@@ -25,4 +25,3 @@ window.addEventListener("load", (event) => {
 	// Implement logout logic here
 	window.location.href = "login.html";
   }
-  
