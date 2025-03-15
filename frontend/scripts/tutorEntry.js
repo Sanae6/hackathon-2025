@@ -25,7 +25,10 @@ function TutorEntry(firstName, lastName, pronouns, age, subject, ratings, descri
   `;
 }
 
-let tutors = [];
+let tutors = [TutorEntry("Tim", "Apple", "He/Him", 18, "Math", 4, "Please Bring fortnite back to the app store"),
+  TutorEntry("Tim", "Apple", "He/Him", 18, "Math", 4, "Please Bring fortnite back to the app store"),
+  TutorEntry("Tim", "Apple", "He/Him", 18, "Math", 4, "Please Bring fortnite back to the app store"),
+];
 
 
 window.addEventListener("load", (event) => {
@@ -34,5 +37,12 @@ window.addEventListener("load", (event) => {
   
   for (i = 0; i < tutors.length; i++) {
     tutorEntryList.innerHTML += tutors[i];
+  }
+});
+
+document.querySelector("#tutors > div").addEventListener("click", (event) => {
+  if (event.target instanceof HTMLButtonElement) {
+    location.href = "/bookSession.html";
+    
   }
 });
