@@ -10,7 +10,7 @@ type Tutor = {
   firstName: string;
   lastName: string;
   age: number;
-  rating: number;
+  rating: number | undefined;
   gpa: number;
   description: string;
   avaliablity: string;
@@ -32,4 +32,3 @@ type Bookings = {
   tutorID: number;
   listOfUsers: string[];
 }
-

@@ -4,8 +4,15 @@ meta {
   seq: 2
 }
 
-get {
-  url: http://localhost:8080/api/test
-  body: none
+post {
+  url: http://localhost:8080/api/tutors/create
+  body: json
   auth: none
+}
+
+body:json {
+  {
+    "firstName": "claudia",
+    "lastName": ""
+  }
 }
