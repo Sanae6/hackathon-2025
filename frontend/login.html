@@ -1,30 +1,52 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset='utf-8'>
-  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-  <title>Login</title>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <link rel='stylesheet' type='text/css' media='screen' href='styles/styles.css'>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Login</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='styles/styles.css'>
 </head>
+
 <body>
-	<script src="scripts/navigationBar.js"></script>
-  <div class="login-container">
-    <h2>Login</h2>
-    <form action="login-action.html" method="POST"> <!-- Replace with your backend logic -->
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required>
+    <script src="scripts/navigationBar.js"></script>
+    <script src="scripts/database.js"></script>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="form">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Password</label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
+            <div class="form-group">
+                <label for="isTutor">Are you a tutor?</label>
+                <input type="checkbox" id="isTutor" name="isTutor">
+            </div>
+            <button id="submit" type="submit" class="login-btn">Login</button>
+        </form>
+        <div class="signup-link">
+            <p>Don't have an account? <a href="signupTutor.html">Sign up as a tutor</a> or <a href="signup.html">sign up as a student</a></p>
         </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <button type="submit" class="login-btn">Login</button>
-    </form>
-    <div class="signup-link">
-        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+
+        <script>
+            async function submit(event) {
+                event.preventDefault();
+                document.getElementById("submit").disabled = true;
+                const isATutor = isTutor.value;
+                if (isATutor) {
+                    const tutorInfo = await api.loginTutor(firstName.value, lastName.value);
+                    tutorInfo.
+                }
+                location.href = "/tutorProfile.html";
+            }
+            form.addEventListener("submit", submit);
+        </script>
     </div>
-</div>
 </body>
+
 </html>

@@ -1,0 +1,205 @@
+
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('/img/blank-papers-multicolor-pencils-grey.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  width: 100%;
+}
+
+.student-signup-container {
+  background: rgba(255, 255, 255, 0.9); 
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.student-signup-container h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.signup-btn {
+  width: 70%;
+  padding: 10px;
+  background-color: #a66674;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  margin-top: 10px;
+}
+
+.signup-btn:hover {
+  background-color: #79051c;
+  transform: scale(1.05);
+}
+
+.secondary-btn {
+  background-color: #ccc;
+  color: black;
+}
+
+.secondary-btn:hover {
+  background-color: #999;
+}
+
+.already-user {
+  text-align: center;
+  margin-top: 30px; 
+  font-size: 0.9rem;
+}
+
+.already-user a {
+  color: #a66674;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.already-user a:hover {
+  text-decoration: underline;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('/img/priscilla-du-preez-XkKCui44iM0-unsplash.jpg'); /* Background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+}
+
+.login-container {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px; /* Limit the form width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+  font-size: 1.75rem;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.login-btn {
+  width: auto;
+  padding: 12px 25px;
+  background-color: #a66674;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login-btn:hover {
+  background-color: #0056b3;
+}
+
+.signup-link {
+  text-align: center;
+  font-size: 1rem;
+  color: #333;
+  margin-top: 15px;
+}
+
+.signup-link a {
+  color: #a66674;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  .login-container {
+      padding: 20px;
+      max-width: 90%;
+  }
+
+  .login-btn {
+      font-size: 1rem;
+      padding: 10px 20px;
+  }
+
+  .form-group input {
+      font-size: 0.9rem;
+      padding: 10px;
+  }
+}
