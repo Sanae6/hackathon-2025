@@ -37,4 +37,5 @@ function getInfoFromStorage() {
     location.href = "/login.html";
     throw new Error("no info, redirecting to login")
   }
+  return JSON.parse(info);
 }
