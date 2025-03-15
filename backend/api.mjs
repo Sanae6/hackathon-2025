@@ -36,8 +36,6 @@ router.get("/users/:userId", (req, res) => {
   res.send(user);
 })
 
-router.get("")
-
 /*
 { "newPronouns": "ja/nice" }
  */
