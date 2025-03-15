@@ -311,10 +311,6 @@ body {
     transition: transform 0.2s;
 }
 
-.booking-container:hover {
-    transform: scale(1.02);
-}
-
 h2 {
     margin-bottom: 20px;
     color: #333;
@@ -348,10 +344,6 @@ tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
-tr:hover {
-    background-color: #e3f2fd;
-    transition: background 0.3s;
-}
 
 .cancel-btn {
     background: linear-gradient(90deg, #ff4d4d, #ff0000);
