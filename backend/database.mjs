@@ -4,29 +4,31 @@ const databaseFilename = "database.json";
 /**
  * @type {DatabaseSchema}
  */
-const database = {
+let database = {
   tutors: [],
   users: [],
   bookings: [],
 };
 
 if (existsSync(databaseFilename))
-  database = readFileSync(databaseFilename, "utf-8");
+  database = JSON.parse(readFileSync(databaseFilename, "utf-8"));
+save();
 
 function save() {
-  writeFileSync(databaseFilename, JSON.stringify(database), "utf-8");
+  writeFileSync(databaseFilename, JSON.stringify(database, null, 2), "utf-8");
 }
 
 /**
  * @param {number} id
- * @returns {Tutor}
+ * @returns {Tutor | undefined}
  */
 export function getTutor(id) {
-  return database.tutors.find(tutor => tutor.tutorID === id);
+  const numId = Number(id);
+  return database.tutors.find(tutor => tutor.tutorID === numId);
 }
 
 export function updateTutorPronouns(id, pronouns) {
-  const tutor = database.tutors.find(tutor => tutor.tutorID === id);
+  const tutor = getTutor(id);
   if (tutor !== undefined)
     tutor.pronouns = pronouns;
 }
