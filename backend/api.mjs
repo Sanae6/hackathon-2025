@@ -38,11 +38,12 @@ router.post("/tutors/createTutor", (req, res) => {
   res.sendStatus(200);
 })
 
-router.post("/tutors/createTutor", (req, res) => {
+router.post("/users/createUsers", (req, res) => {
   const {firstName, lastName, pronouns} = req.body;
   database.createUser(firstName, lastName, pronouns);
 
   res.sendStatus(200);
 })
+
 
 export default router;
