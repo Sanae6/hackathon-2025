@@ -25,29 +25,33 @@ function TutorEntry(firstName, lastName, pronouns, age, subject, ratings, descri
     </div>
   `,
 
-  identifier: id,
-};
+    identifier: id,
+  };
 }
 
-let tutors = [TutorEntry("Tim", "Apple", "He/Him", 18, "Math", 3, "Please Bring fortnite back to the app store", 0),
-  TutorEntry("Tim", "Apple", "He/Him", 18, "Math", 5, "Please Bring fortnite back to the app store", 1),
-  TutorEntry("Tim", "Apple", "He/Him", 18, "Math", 1, "Please Bring fortnite back to the app store", 2),
-];
+
+// let tutors = [TutorEntry("Tim", "Apple", "He/Him", 18, "Math", 3, "Please Bring fortnite back to the app store", 0),
+//   TutorEntry("Tim", "Apple", "He/Him", 18, "Math", 5, "Please Bring fortnite back to the app store", 1),
+//   TutorEntry("Tim", "Apple", "He/Him", 18, "Math", 1, "Please Bring fortnite back to the app store", 2),
+// ];
 
 
-window.addEventListener("load", (event) => {
+window.addEventListener("load", async (event) => {
+  let tutors = (await api.getTutors()).map(tutor => TutorEntry(tutor.firstName, tutor.lastName, tutor.pronouns, tutor.age, tutor.subject, tutor.rating, tutor.description, tutor.id));
+
   let tutorEntryList = document.querySelector("#tutors > div");
   tutorEntryList.innerHTML = "";
-  
+
   for (i = 0; i < tutors.length; i++) {
     tutorEntryList.innerHTML += tutors[i].markup;
   }
-});
 
-document.querySelector("#tutors > div").addEventListener("click", (event) => {
-  if (event.target instanceof HTMLButtonElement) {
-    bookingTutorId = getInfoFromStorage();
-    console.log(bookingTutorId);
-    
-  }
+
+  tutorEntryList.addEventListener("click", (event) => {
+    if (event.target instanceof HTMLButtonElement) {
+      bookingTutorId = getInfoFromStorage();
+      console.log(bookingTutorId);
+
+    }
+  });
 });

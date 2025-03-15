@@ -36,13 +36,8 @@ type Bookings = {
   listOfUsers: number[];
 }
 
-type Chat = {
-  tutorID: number,
-  userID: number,
-  messages: string[],
-};
-
-type Message = {
-  isTutor: boolean,
-  text: string;
-};
+// type BookingRequest = {
+//   tutorID: number;
+//   userID: number;
+//   text: string;
+// };

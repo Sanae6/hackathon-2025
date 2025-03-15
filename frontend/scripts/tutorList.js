@@ -16,11 +16,7 @@ function findEntry(list, name) {
   }
 }
 
-let subects = [];
-
-for (const subject of SUBJECTS) {
-  subects.push(entry(subject));
-}
+let subjects = SUBJECTS.map(subject => entry(subject));
 
 let daysOfTheWeek = [entry("Monday"), entry("Tuesday"), entry("Wednesday"), entry("Thursday"), entry("Friday"), entry("Saturday"), entry("Sunday")];
 
@@ -37,7 +33,7 @@ function filterOption(name) {
 window.addEventListener("load", (event) => {
   let subjectFilters = document.querySelector("#subjectFilter > div");
   subjectFilters.innerHTML = "";
-  for (const subject of subects) {
+  for (const subject of subjects) {
     subjectFilters.innerHTML += filterOption(subject.name);
   }
 
@@ -63,15 +59,15 @@ subjectFilter.addEventListener("click", (event) => {
   if (event.target instanceof HTMLButtonElement) {
     let subject = event.target.parentNode.querySelector("p").textContent;
     
-    let subjectListIndex = findEntry(subects, subject);
+    let subjectListIndex = findEntry(subjects, subject);
     
-    if (subects[subjectListIndex].selected === false) {
+    if (subjects[subjectListIndex].selected === false) {
       event.target.classList = "active";
-      subects[subjectListIndex].selected = true;
+      subjects[subjectListIndex].selected = true;
     }
     else {
       event.target.classList = "";
-      subects[subjectListIndex].selected = false;
+      subjects[subjectListIndex].selected = false;
     }
   }
 });

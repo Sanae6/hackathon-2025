@@ -12,6 +12,13 @@ async function doPost(url, json) {
 }
 
 const api = {
+  /**
+   * 
+   * @returns {Tutor[]}
+   */
+  async getTutors() {
+    return await doGet("/api/tutors");
+  },
   async loginTutor(firstName, lastName) {
     return await doGet(`/api/tutors/login?firstName=${encodeURI(firstName)}&lastName=${encodeURI(lastName)}`)
   },
