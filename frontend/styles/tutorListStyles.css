@@ -42,6 +42,7 @@
   flex-flow: column nowrap;
   justify-content: start;
   row-gap: 1vh;
+  padding-left: .5vw;
 }
 
 .filterOption {
@@ -74,5 +75,33 @@
 
 #tutors {
   grid-area: 1 / 2 / 2 / 3;
+  padding-left: 1vw;
+  display: grid;
+  grid-template: 5% 1fr / 1fr;
+}
+
+#tutors > h1 {
+  grid-area: 1 / 1 / 2 / 2;
+  width: fit-content;
+  justify-self: start;
+}
+
+#tutors > div {
+  grid-area: 2 / 1 / 3 / 2;
+  display: flex;
+}
+
+.tutorEntry {
+  border: 2px solid red;
+  height: 25vh;
+  width: 100%;
+  display: grid;
+  grid-template: 1fr / 1fr 1fr;
+}
+
+.tutorEntry > img {
+  grid-area: 1 / 1 / 2 / 2;
+  height: 20vh;
+  width: auto;
 }
 

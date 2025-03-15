@@ -34,15 +34,14 @@ window.addEventListener("load", (event) => {
   for (const subject of subects) {
     subjectFilters.innerHTML += filterOption(subject.name);
   }
-});
 
-window.addEventListener("load", (event) => {
   let avaliabilityFilters = document.querySelector("#avalibilityFilter > div");
   avaliabilityFilters.innerHTML = "";
   for (const day of daysOfTheWeek) {
     avaliabilityFilters.innerHTML += filterOption(day.name);
   }
 });
+
 
 function resetSubjects() {
   let currentActiveElement = document.querySelector("#subjectFilter > div > .filterOption > .active");
