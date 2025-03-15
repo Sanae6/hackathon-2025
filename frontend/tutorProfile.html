@@ -6,7 +6,10 @@
     <title>Tutor Profile</title>
     <link rel="stylesheet" href="/styles/styles.css">
 </head>
-<body> <div class="profile-container">
+<body> 
+    <div id="mainPageStructure">
+		<nav id="navigationBar"></nav>
+  <div class="profile-container">
   <h2>Tutor Profile</h2>
   <div class="profile-card">
       <div class="profile-header">
@@ -15,9 +18,13 @@
       </div>
       <div class="profile-details">
           <div class="detail-row">
-              <label for="tutorName">Name:</label>
+              <label for="tutorName">First Name:</label>
               <input type="text" id="tutorName" value="John Doe" disabled>
           </div>
+          <div class="detail-row">
+            <label for="tutorName">Last Name:</label>
+            <input type="text" id="tutorName" value="John Doe" disabled>
+        </div>
           <div class="detail-row">
               <label for="tutorSubject">Subject:</label>
               <input type="text" id="tutorSubject" value="Mathematics" disabled>
@@ -106,6 +113,11 @@
       <button id="saveProfileBtn" onclick="saveProfile()" style="display: none;">Save Profile</button>
   </div>
 </div>
+</div>
+<script src="scripts/database.js"></script>
+<script src="scripts/navigationBar.js"></script>
+<script src="scripts/tutorProfile.js"></script>
+
 <script>
   function toggleEditMode() {
       const isDisabled = document.getElementById("tutorName").disabled;
