@@ -31,6 +31,12 @@ router.post("/tutors/:tutorId/wokeness", (req, res) => {
   res.sendStatus(200);
 })
 
+router.post("/tutors/:tutorId/availability", (req, res) => {
+  database.updateTutorAvailability(req.params.tutorId, req.body.newAvailability);
+
+  res.sendStatus(200);
+})
+
 router.post("/tutors/createTutor", (req, res) => {
   const {firstName, lastName, age, gpa, subject, pronouns} = req.body;
   database.createTutor(firstName, lastName, age, gpa, subject, pronouns);
@@ -45,5 +51,10 @@ router.post("/users/createUsers", (req, res) => {
   res.sendStatus(200);
 })
 
+router.post("/users/:userID/workenessPt2", (req, res) => {
+  database.updateUserPronouns(req.params.userID, req.body.newPronouns);
+
+  res.sendStatus(200);
+})
 
 export default router;
