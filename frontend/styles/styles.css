@@ -1,7 +1,7 @@
 * {
     margin: 0px;
     padding: 0px;
-    font-family: ;
+    font-family: "Noto Sans", sans-serif;
 }
 
 :root {
@@ -31,23 +31,41 @@ body {
     display: flex;
     justify-content: end;
     align-items: center;
-    background-color: rgb(0, 251, 75);
+    background-color: rgb(7, 78, 48);
     padding: 7px;
     column-gap: 5px;
 }
 
 #navigationBar * {
-    border: 2px solid rgb(255, 0, 0);
+    font-weight: bold;
 }
 
 #navigationBar > button  {
-    width: 5%;
+    width: 7%;
     height: 100%;
+    font-size: 130%;
+    background-color: rgb(255, 198, 67);
+    transition: background-color .2s;
+    color: black;
+    border: 2px solid black;
 }
 
+#navigationBar > button:hover {
+    transition: background-color .2s;
+    background-color: rgb(248, 220, 155);
+}
 
+#navigationBar > button:active {
+    transition: background-color .2s;
+    background-color: rgb(251, 236, 201);
+}
 
-#navigationBar > p {
+.seperationPoint {
+    margin-left: auto;
+}
+
+#navigationBar > p, #name {
     width: fit-content;
+    color: white;
 }
 
