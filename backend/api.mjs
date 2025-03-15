@@ -31,4 +31,11 @@ router.post("/tutors/:tutorId/wokeness", (req, res) => {
   res.sendStatus(200);
 })
 
+router.post("/tutors/create", (req, res) =>{
+  const {firstName, lastName, age, gpa, subject, pronouns} = req.body
+  database.createTutor(firstName, lastName, age, gpa, subject, pronouns);
+
+  res.sendStatus(200);
+})
+
 export default router;
