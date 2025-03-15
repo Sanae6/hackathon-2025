@@ -27,9 +27,12 @@ function save() {
  */
 
 //Getting Objects from database Fuctions
-export function getTutor(id) {
+export function getTutorById(id) {
   const numId = Number(id);
   return database.tutors.find(tutor => tutor.tutorID === numId);
+}
+export function getTutorByName(firstName, lastName){
+  return database.tutors.find((tutor => tutor.firstName === firstName && tutor.lastName === lastName))
 }
 export function getUser(id) {
   const numId = Number(id);
@@ -41,6 +44,7 @@ export function getBooking(id) {
   return database.bookings.find(booking => booking.id === numId);
   save();
 }
+
 
 // Tutor Functions
 export function updateTutorPronouns(id, pronouns) {
@@ -137,5 +141,7 @@ export function changeTimeBooking(id, date, time) {
   }
   save();
 }
+
+
 
 export default undefined;

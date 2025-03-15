@@ -16,10 +16,25 @@ router.get("/test/:testAwesome", (req, res) => {
 
 router.get("/tutors/:tutorId", (req, res) => {
   console.log(req.params.tutorId);
-  const tutor = database.getTutor(req.params.tutorId);
+  const tutor = database.getTutorById(req.params.tutorId);
 
   res.send(tutor);
 })
+
+router.get("/tutors/login", (req, res) => {
+  const tutor = database.getTutorByName(req.query.firstName, req.query.lastName);
+
+  res.send(tutor);
+})
+
+router.get("/users/:userId", (req, res) => {
+  console.log(req.params.userrId);
+  const user = database.getUser(req.params.userId);
+
+  res.send(user);
+})
+
+router.get("")
 
 /*
 { "newPronouns": "ja/nice" }
