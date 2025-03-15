@@ -10,7 +10,7 @@ app.get("/*", (req, _, next) => {
 
 const frontendPath = path.join(import.meta.dirname, "..", "frontend");
 console.log("wowowow", frontendPath);
-app.use(express.static(frontendPath));
+app.use(express.static(frontendPath, { index: ["index.html"] }));
 
 app.use("/api", api);
 
