@@ -6,116 +6,137 @@
     <title>Tutor Profile</title>
     <link rel="stylesheet" href="/hackathon-2025/frontend/styles/styles.css">
 </head>
-<body>
-  <div class="profile-container">
-    <h2>Tutor Profile</h2>
-    <div class="profile-card">
-        <div class="profile-header">
-            <input type="file" id="profilePicInput" accept="image/*" hidden>
-            <img src="tutor-placeholder.jpg" alt="Tutor Profile Picture" class="profile-pic" id="profilePic">
-        </div>
-        <div class="profile-details">
-            <div class="detail-row">
-                <label for="tutorName">Name:</label>
-                <input type="text" id="tutorName" value="John Doe" disabled>
-            </div>
-            <div class="detail-row">
-                <label for="tutorSubject">Subject:</label>
-                <input type="text" id="tutorSubject" value="Mathematics" disabled>
-            </div>
-            <div class="detail-row">
-                <label for="tutorBio">Bio:</label>
-                <textarea id="tutorBio" disabled>Experienced math tutor with over 5 years of teaching.</textarea>
-            </div>
-            <div class="detail-row">
-                <label>Availability:</label>
-                <div class="availability-grid">
-                    <div class="day">
-                        <input type="checkbox" id="monday" disabled>
-                        <label for="monday">Monday</label>
-                    </div>
-                    <div class="day">
+<body> <div class="profile-container">
+  <h2>Tutor Profile</h2>
+  <div class="profile-card">
+      <div class="profile-header">
+          <input type="file" id="profilePicInput" accept="image/*" hidden>
+          <img src="tutor-placeholder.jpg" alt="Tutor Profile Picture" class="profile-pic" id="profilePic">
+      </div>
+      <div class="profile-details">
+          <div class="detail-row">
+              <label for="tutorName">Name:</label>
+              <input type="text" id="tutorName" value="John Doe" disabled>
+          </div>
+          <div class="detail-row">
+              <label for="tutorSubject">Subject:</label>
+              <input type="text" id="tutorSubject" value="Mathematics" disabled>
+          </div>
+          <div class="detail-row">
+              <label for="tutorBio">Bio:</label>
+              <textarea id="tutorBio" disabled>Experienced math tutor with over 5 years of teaching.</textarea>
+          </div>
+          <div class="detail-row">
+              <label>Availability:</label>
+              <div class="availability-grid">
+                  <div class="day">
+                      <input type="checkbox" id="monday" disabled>
+                      <label for="monday">Monday</label>
+                      <div class="time-slots" id="mondayTimeSlots" style="display: none;">
+                          <label for="mondayStart">Start Time:</label>
+                          <input type="time" id="mondayStart" disabled>
+                          <label for="mondayEnd">End Time:</label>
+                          <input type="time" id="mondayEnd" disabled>
+                      </div>
+                      <div class="day">
                         <input type="checkbox" id="tuesday" disabled>
                         <label for="tuesday">Tuesday</label>
-                    </div>
-                    <div class="day">
+                        <div class="time-slots" id="tuesdayTimeSlots" style="display: none;">
+                            <label for="tuesdayStart">Start Time:</label>
+                            <input type="time" id="tuesdayStart" disabled>
+                            <label for="tuesdayEnd">End Time:</label>
+                            <input type="time" id="tuesdayEnd" disabled>
+                        </div>
                         <input type="checkbox" id="wednesday" disabled>
                         <label for="wednesday">Wednesday</label>
+                        <div class="time-slots" id="wednesdayTimeSlots" style="display: none;">
+                            <label for="wednesdayStart">Start Time:</label>
+                            <input type="time" id="wednesdayStart" disabled>
+                            <label for="wednesdayEnd">End Time:</label>
+                            <input type="time" id="wednesdayEnd" disabled>
+                        </div>
+                        <div class="day">
+                          <input type="checkbox" id="thursday" disabled>
+                          <label for="thursday">Thursday</label>
+                          <div class="time-slots" id="thursdayTimeSlots" style="display: none;">
+                              <label for="thursdayStart">Start Time:</label>
+                              <input type="time" id="thursdayStart" disabled>
+                              <label for="thursdayEnd">End Time:</label>
+                              <input type="time" id="thursdayEnd" disabled>
+                          </div>
+                          <div class="day">
+                            <input type="checkbox" id="friday" disabled>
+                            <label for="friday">Friday</label>
+                            <div class="time-slots" id="fridayTimeSlots" style="display: none;">
+                                <label for="fridayStart">Start Time:</label>
+                                <input type="time" id="fridayStart" disabled>
+                                <label for="fridayEnd">End Time:</label>
+                                <input type="time" id="fridayEnd" disabled>
+                            </div>
+                            <div class="day">
+                              <input type="checkbox" id="saturday" disabled>
+                              <label for="saturday">Saturday</label>
+                              <div class="time-slots" id="saturdayTimeSlots" style="display: none;">
+                                  <label for="saturdayStart">Start Time:</label>
+                                  <input type="time" id="saturdayStart" disabled>
+                                  <label for="saturdayEnd">End Time:</label>
+                                  <input type="time" id="saturdayEnd" disabled>
+                              </div>
+                              <div class="day">
+                                <input type="checkbox" id="sunday" disabled>
+                                <label for="sunday">Sunday</label>
+                                <div class="time-slots" id="sundayTimeSlots" style="display: none;">
+                                    <label for="sundayStart">Start Time:</label>
+                                    <input type="time" id="sundayStart" disabled>
+                                    <label for="sundayEnd">End Time:</label>
+                                    <input type="time" id="sundayEnd" disabled>
+                                </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="day">
-                        <input type="checkbox" id="thursday" disabled>
-                        <label for="thursday">Thursday</label>
                     </div>
-                    <div class="day">
-                        <input type="checkbox" id="friday" disabled>
-                        <label for="friday">Friday</label>
-                    </div>
-                    <div class="day">
-                        <input type="checkbox" id="saturday" disabled>
-                        <label for="saturday">Saturday</label>
-                    </div>
-                    <div class="day">
-                        <input type="checkbox" id="sunday" disabled>
-                        <label for="sunday">Sunday</label>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="actions">
-        <button id="editProfileBtn" onclick="toggleEditMode()">Edit Profile</button>
-        <button id="saveProfileBtn" onclick="saveProfile()" style="display: none;">Save Profile</button>
-    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="actions">
+      <button id="editProfileBtn" onclick="toggleEditMode()">Edit Profile</button>
+      <button id="saveProfileBtn" onclick="saveProfile()" style="display: none;">Save Profile</button>
+  </div>
 </div>
-
 <script>
-    function toggleEditMode() {
-        const isDisabled = document.getElementById("tutorName").disabled;
-        document.getElementById("tutorName").disabled = !isDisabled;
-        document.getElementById("tutorSubject").disabled = !isDisabled;
-        document.getElementById("tutorBio").disabled = !isDisabled;
-        const checkboxes = document.querySelectorAll('.availability-grid input[type="checkbox"]');
-        checkboxes.forEach(checkbox => checkbox.disabled = !isDisabled);
-        document.getElementById("saveProfileBtn").style.display = isDisabled ? "inline-block" : "none";
-        document.getElementById("editProfileBtn").style.display = isDisabled ? "none" : "inline-block";
-        
-        if (isDisabled) {
-            document.getElementById("profilePic").addEventListener("click", changeProfilePic);
-        } else {
-            document.getElementById("profilePic").removeEventListener("click", changeProfilePic);
-        }
-    }
+  function toggleEditMode() {
+      const isDisabled = document.getElementById("tutorName").disabled;
+      document.getElementById("tutorName").disabled = !isDisabled;
+      document.getElementById("tutorSubject").disabled = !isDisabled;
+      document.getElementById("tutorBio").disabled = !isDisabled;
+      const checkboxes = document.querySelectorAll('.availability-grid input[type="checkbox"]');
+      checkboxes.forEach(checkbox => {
+          checkbox.disabled = !isDisabled;
+          checkbox.addEventListener('change', toggleTimeSlots);
+      });
+      const timeInputs = document.querySelectorAll('.time-slots input[type="time"]');
+      timeInputs.forEach(input => input.disabled = !isDisabled);
+      document.getElementById("saveProfileBtn").style.display = isDisabled ? "inline-block" : "none";
+      document.getElementById("editProfileBtn").style.display = isDisabled ? "none" : "inline-block";
+  }
 
-    function changeProfilePic() {
-        document.getElementById('profilePicInput').click();
-    }
+  function toggleTimeSlots(event) {
+      const day = event.target.id;
+      const timeSlots = document.getElementById(`${day}TimeSlots`);
+      if (event.target.checked) {
+          timeSlots.style.display = 'block';
+      } else {
+          timeSlots.style.display = 'none';
+      }
+  }
 
-    document.getElementById('profilePicInput').addEventListener('change', function(event) {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                document.getElementById('profilePic').src = e.target.result;
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-
-    function saveProfile() {
-        const name = document.getElementById("tutorName").value;
-        const subject = document.getElementById("tutorSubject").value;
-        const bio = document.getElementById("tutorBio").value;
-        const availability = [];
-        const checkboxes = document.querySelectorAll('.availability-grid input[type="checkbox"]');
-        checkboxes.forEach(checkbox => {
-            if (checkbox.checked) {
-                availability.push(checkbox.nextElementSibling.innerText);
-            }
-        });
-        
-        alert(`Profile updated successfully!\n\nName: ${name}\nSubject: ${subject}\nBio: ${bio}\nAvailability: ${availability.join(', ')}`);
-        toggleEditMode();
-    }
+  function saveProfile() {
+      alert("Profile saved successfully!");
+      toggleEditMode();
+  }
 </script>
 </body>
 </html>
