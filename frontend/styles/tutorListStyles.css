@@ -7,7 +7,7 @@
 #filters {
   grid-area: 1 / 1 / 2 / 2;
   display: grid;
-  grid-template: 5% 1fr 1fr / 1fr;
+  grid-template: 6% 1fr 1fr / 1fr;
   border-right: 2px solid red;
 }
 
@@ -15,6 +15,7 @@
   grid-area: 1 / 1 / 2 / 2;
   width: fit-content;
   justify-self: center;
+  font-size: 250%;
 }
 
 #subjectFilter {
@@ -34,7 +35,6 @@
 #subjectFilter > h1, #avalibilityFilter > h1 {
   font-size: 160%;
   height: fit-content;
-  
 }
 
 #subjectFilter > div, #avalibilityFilter > div {
@@ -71,13 +71,11 @@
   align-self: center;
 }
 
-
-
 #tutors {
   grid-area: 1 / 2 / 2 / 3;
   padding-left: 1vw;
   display: grid;
-  grid-template: 5% 1fr / 1fr;
+  grid-template: 6% 1fr / 1fr;
 
 }
 
@@ -85,7 +83,7 @@
   grid-area: 1 / 1 / 2 / 2;
   width: fit-content;
   justify-self: start;
-  
+  font-size: 300%;  
 }
 
 #tutors > div {
@@ -96,11 +94,11 @@
 
 .tutorEntry {
   background-color: rgb(205,205,205);
-  height: 30vh;
+  height: 20vh;
   width: 100%;
   display: grid;
-  grid-template: 1fr / 2fr 4fr 3fr 2fr;
-  padding: 1vh 1vw;
+  grid-template: 1fr / 1.5fr 2fr 4fr 2fr;
+  padding: 1vh 0px;
   border-radius: 5px;
 }
 
@@ -108,7 +106,7 @@
   grid-area: 1 / 1 / 2 / 2;
   justify-self: center;
   align-self: center;
-  height: 23vh;
+  height: 15vh;
   width: auto;
 }
 
@@ -120,10 +118,8 @@
   row-gap: 1vh;
 }
 
-
-
 .tutorInfo > h1 {
-  font-size: 250%;
+  font-size: 150%;
 }
 
 .tutorInfo > h2 {
@@ -152,11 +148,17 @@
 
 .tutorEntry > .actions {
   grid-area: 1 / 4 / 2 / 5;
+  height: 100%;
+  width: 100%;
   justify-self: center;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  
 }
 
 .tutorEntry > .actions > button {
-  width: auto;
+  width: 60%;
   padding: 10px 20px;
   font-size: 1rem;
   background-color: rgb(255, 198, 67);
@@ -165,8 +167,7 @@
   border: 2px solid black;
   border-radius: 5px;
   cursor: pointer;
-  height: 15%;
-  justify-self: center;
+  height: 20%;
   align-self: center;
 }
 
