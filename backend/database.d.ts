@@ -4,6 +4,7 @@ type DatabaseSchema = {
   bookings: Bookings[],
   nextTutorID: number,
   nextUserID: number,
+  nextBookingID: number,
 }
 
 type Tutor = {
