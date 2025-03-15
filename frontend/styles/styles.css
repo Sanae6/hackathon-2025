@@ -32,8 +32,10 @@ body {
     justify-content: end;
     align-items: center;
     background-color: rgb(7, 78, 48);
-    padding: 7px;
-    column-gap: 5px;
+    padding: 10px 20px;
+    column-gap: 10px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 #navigationBar * {
@@ -41,23 +43,25 @@ body {
 }
 
 #navigationBar > button  {
-    width: 7%;
-    height: 100%;
-    font-size: 130%;
+    width: auto;
+    padding: 10px 20px;
+    font-size: 1rem;
     background-color: rgb(255, 198, 67);
-    transition: background-color .2s;
+    transition: background-color .2s, transform .2s;
     color: black;
     border: 2px solid black;
+    border-radius: 20px;
+    cursor: pointer;
 }
 
 #navigationBar > button:hover {
-    transition: background-color .2s;
     background-color: rgb(248, 220, 155);
+    transform: scale(1.05);
 }
 
 #navigationBar > button:active {
-    transition: background-color .2s;
     background-color: rgb(251, 236, 201);
+    transform: scale(0.98);
 }
 
 .seperationPoint {
@@ -68,4 +72,80 @@ body {
     width: fit-content;
     color: white;
 }
+/* 
+Signup page Css below
+*/
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Sans", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('/hackathon-2025/frontend/img/signupback.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    width: 100%;
+}
+
+
+.signup-container {
+    background: rgba(255, 255, 255, 0.9); /* Slight transparency */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.signup-container h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.signup-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.signup-btn:hover {
+    background-color: #0056b3;
+}
