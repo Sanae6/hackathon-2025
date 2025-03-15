@@ -117,11 +117,13 @@ export function cancelBooking(id) {
     save();
   }
 }
+
 export function addBooking(date, time, tutorID) {
-  const booking = {id: nextBookingID++, date, time, tutorID};
-  database.booking.push(booking);
+  const booking = {id: database.nextBookingID++, date, time, tutorID};
+  database.bookings.push(booking);
   save();
 }
+
 export function addUsertoBooking(id, userID) {
   const booking = getBooking(id);
   if (booking !== undefined)

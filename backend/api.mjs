@@ -104,11 +104,11 @@ router.post("/bookings/:bookingID/cancelled", (req, res) => {
 })
 
 router.post("/bookings/createBooking", (req, res) => {
-  const {date, time, tutorID} = req.body;
-  database.addBooking(date, time, tutorID);
+  const {date, tutorID} = req.body;
+  database.addBooking(date, tutorID);
 
   res.sendStatus(200);
-})
+});
 
 router.post("/bookings/:bookingID/bookings/:userID", (req, res) => {
   database.addUsertoBooking(req.params.bookingID, req.params.userID);

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset='utf-8'>
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -8,42 +9,51 @@
   <link rel='stylesheet' type='text/css' media='screen' href='styles/styles.css'>
   <link rel='stylesheet' type='text/css' media='screen' href='styles/bookSession.css'>
 </head>
+
 <body>
   <div id="mainPageStructure">
-		<nav id="navigationBar"></nav> <!--Will be filled with a javascript file-->
+    <nav id="navigationBar"></nav> <!--Will be filled with a javascript file-->
     <div id="bookSessionStructure">
-      <form id="bookSessionForm">
+      <form id="bookSessionForm" >
         <h1 id="title">Book Session with </h1>
         <p>
           <label for="sessionDate">Date</label>
           <input type="date" id="sessionDate" name="sessionDate">
         </p>
-        <p>
+        <!-- <p>
           <label for="sessionTime">Time</label>
           <input type="time" id="sessionTime" name="sessionTime">
-        </p>
+        </p> -->
         <button>Confirm</button>
       </form>
-
-      
     </div>
+  </div>
 
-
-	</div>
   <script src="scripts/database.js"></script>
-	<script src="scripts/navigationBar.js"></script>
+  <script src="scripts/navigationBar.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", async () => {
       const tutorId = parseInt(new URLSearchParams(location.search).get("tutorID"));
       console.log(tutorId)
-      if (tutorId === NaN){
+      if (tutorId === NaN) {
         location.href = "/tutorList.html";
         return;
       }
       const tutor = await api.getTutor(tutorId);
       document.getElementById("title").innerText = `Book Session for ${tutor.firstName} ${tutor.lastName}`;
-      
+      document.getElementById("bookSessionForm").addEventListener("submit", async (event) => {
+        event.preventDefault();
+        /**
+         * @type {HTMLInputElement}
+         */
+        const date = document.getElementById("sessionDate");
+        
+        await api.createBooking(tutorId, date);
+
+        location.href = "/bookings.html";
+      })
     })
   </script>
 </body>
+
 </html>

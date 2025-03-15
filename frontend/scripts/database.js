@@ -41,8 +41,8 @@ const api = {
     await doPost("/api/tutors/createTutor", { firstName, lastName, age, gpa, subject, pronouns });
   },
 
-  async createBooking(tutorId, date, time) {
-    await doPost("/api/bookings/createBooking", { tutorID: tutorId, date, time });
+  async createBooking(tutorId, date) {
+    await doPost("/api/bookings/createBooking", { tutorID: tutorId, date });
   }
 }
 

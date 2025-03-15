@@ -37,7 +37,7 @@ type User = {
 type Bookings = {
   id: number;
   date: string;
-  time: string;
+  // time: string;
   tutorID: number;
   listOfUsers: number[];
 }
