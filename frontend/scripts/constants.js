@@ -9,3 +9,13 @@ const SUBJECTS = [
   "Psychology"
 ];
 
+const PFPS = [
+  "One",
+  "Two",
+  "Three",
+  "Four",
+  "Five",
+  "Six",
+  "Seven",
+  "Eight",
+];

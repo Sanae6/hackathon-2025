@@ -15,10 +15,16 @@ type Tutor = {
   rating: number | undefined;
   gpa: number;
   description: string;
-  avaliablity: string;
+  availablity: Day[];
   subject: string;
   pronouns: string;
 }
+
+type Day = {
+  name: string;
+  start: number;
+  end: number;
+};
 
 type User = {
   userID: number;

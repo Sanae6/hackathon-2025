@@ -13,7 +13,7 @@
 		<nav id="navigationBar"></nav> <!--Will be filled with a javascript file-->
     <div id="bookSessionStructure">
       <form id="bookSessionForm">
-        <h1>Book Session with First Name Last Name</h1>
+        <h1 id="title">Book Session with </h1>
         <p>
           <label for="sessionDate">Date</label>
           <input type="date" id="sessionDate" name="sessionDate">
@@ -32,5 +32,18 @@
 	</div>
   <script src="scripts/database.js"></script>
 	<script src="scripts/navigationBar.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const tutorId = parseInt(new URLSearchParams(location.search).get("tutorID"));
+      console.log(tutorId)
+      if (tutorId === NaN){
+        location.href = "/tutorList.html";
+        return;
+      }
+      const tutor = await api.getTutor(tutorId);
+      document.getElementById("title").innerText = `Book Session for ${tutor.firstName} ${tutor.lastName}`;
+      
+    })
+  </script>
 </body>
 </html>

@@ -5,10 +5,12 @@ function TutorEntry(firstName, lastName, pronouns, age, subject, ratings, descri
     ratingStars += `<img src="./img/star.png">`;
   }
 
+  const randomPfp = PFPS[Math.floor(Math.random() * PFPS.length)];
+
   return {
     markup: `
     <div class="tutorEntry">
-        <img class="profilePicture" src="https://media.istockphoto.com/id/1223671392/vector/default-profile-picture-avatar-photo-placeholder-vector-illustration.jpg?s=612x612&w=0&k=20&c=s0aTdmT5aU6b8ot7VKm11DeID6NctRCpB755rA1BIP0="/>
+        <img class="profilePicture" src="img/profilePictures/option${randomPfp}.png"/>
         <div class="tutorInfo">
           <h1>${firstName} ${lastName}</h1>
           <h2>Pronouns: ${pronouns}</h2>
@@ -20,7 +22,7 @@ function TutorEntry(firstName, lastName, pronouns, age, subject, ratings, descri
         </div>
         <p class="description">${description}</p>
         <div class="actions">
-          <button class="bookButton">Book</button>
+          <button id="bookButton" class="bookButton" data="${id}">Book</button>
         </div>
     </div>
   `,
@@ -35,10 +37,9 @@ function TutorEntry(firstName, lastName, pronouns, age, subject, ratings, descri
 //   TutorEntry("Tim", "Apple", "He/Him", 18, "Math", 1, "Please Bring fortnite back to the app store", 2),
 // ];
 
+let allTutors = [];
 
-window.addEventListener("load", async (event) => {
-  let tutors = (await api.getTutors()).map(tutor => TutorEntry(tutor.firstName, tutor.lastName, tutor.pronouns, tutor.age, tutor.subject, tutor.rating, tutor.description, tutor.id));
-
+function recreateTutors(tutors) {
   let tutorEntryList = document.querySelector("#tutors > div");
   tutorEntryList.innerHTML = "";
 
@@ -49,11 +50,24 @@ window.addEventListener("load", async (event) => {
 
   tutorEntryList.addEventListener("click", (event) => {
     if (event.target instanceof HTMLButtonElement) {
-      bookingTutorId = getInfoFromStorage();
-      console.log(bookingTutorId);
-
+      location.href = `/bookSession.html?tutorID=${parseInt(event.target.attributes.getNamedItem("data").textContent)}`;
     }
   });
+
+}
+
+function createTutorEntry(tutor) {
+  return TutorEntry(tutor.firstName, tutor.lastName, tutor.pronouns, tutor.age, tutor.subject, tutor.rating, tutor.description, tutor.tutorID);
+}
+/**
+ * 
+ * @param {(tutor: Tutor) => boolean} filter 
+ */
+function filterTutors(filter) {
+  recreateTutors(allTutors.filter(filter).map(createTutorEntry));
+}
+
+window.addEventListener("load", async (event) => {
+  allTutors = await api.getTutors();
+  recreateTutors(allTutors.map(createTutorEntry));
 });
-
-

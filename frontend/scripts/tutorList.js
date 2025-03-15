@@ -16,10 +16,12 @@ function findEntry(list, name) {
   }
 }
 
+/**
+ * @type {{name: string, selected: boolean}[]}
+ */
 let subjects = SUBJECTS.map(subject => entry(subject));
 
 let daysOfTheWeek = [entry("Monday"), entry("Tuesday"), entry("Wednesday"), entry("Thursday"), entry("Friday"), entry("Saturday"), entry("Sunday")];
-
 
 function filterOption(name) {
   return `
@@ -52,15 +54,23 @@ function resetSubjects() {
   }
 }
 
+function selectedOrTrue(list, finder) {
+  if (list.find(x => x.selected) === undefined) return true;
+  return list.find(x => x.selected && finder(x)) !== undefined
+}
 
+function filterChanged() {
+  filterTutors(tutor => selectedOrTrue(subjects, x => x.name === tutor.subject)
+    && selectedOrTrue(daysOfTheWeek, x => tutor.availablity.includes(x.name)));
+}
 
 let subjectFilter = document.querySelector("#subjectFilter > div");
 subjectFilter.addEventListener("click", (event) => {
   if (event.target instanceof HTMLButtonElement) {
     let subject = event.target.parentNode.querySelector("p").textContent;
-    
+
     let subjectListIndex = findEntry(subjects, subject);
-    
+
     if (subjects[subjectListIndex].selected === false) {
       event.target.classList = "active";
       subjects[subjectListIndex].selected = true;
@@ -69,18 +79,19 @@ subjectFilter.addEventListener("click", (event) => {
       event.target.classList = "";
       subjects[subjectListIndex].selected = false;
     }
+    filterChanged();
   }
 });
 
 let avalibilityFilter = document.querySelector("#avalibilityFilter > div");
 avalibilityFilter.addEventListener("click", (event) => {
   let eventTarget = (new String(event.target)).toString();
-  
+
   if (event.target instanceof HTMLButtonElement) {
     let day = event.target.parentNode.querySelector("p").textContent;
-    
+
     let dayListIndex = findEntry(daysOfTheWeek, day);
-    
+
     if (daysOfTheWeek[dayListIndex].selected === false) {
       event.target.classList = "active";
       daysOfTheWeek[dayListIndex].selected = true;
@@ -89,7 +100,6 @@ avalibilityFilter.addEventListener("click", (event) => {
       event.target.classList = "";
       daysOfTheWeek[dayListIndex].selected = false;
     }
+    filterChanged();
   }
 });
-
-// TUTOR PART

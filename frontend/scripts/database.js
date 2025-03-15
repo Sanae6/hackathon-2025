@@ -19,6 +19,13 @@ const api = {
   async getTutors() {
     return await doGet("/api/tutors");
   },
+  /**
+   * 
+   * @returns {Tutor}
+   */
+  async getTutor(id) {
+    return await doGet(`/api/tutors/${id}`);
+  },
   async loginTutor(firstName, lastName) {
     return await doGet(`/api/tutors/login?firstName=${encodeURI(firstName)}&lastName=${encodeURI(lastName)}`)
   },
@@ -32,6 +39,10 @@ const api = {
 
   async createTutor(firstName, lastName, age, gpa, subject, pronouns) {
     await doPost("/api/tutors/createTutor", { firstName, lastName, age, gpa, subject, pronouns });
+  },
+
+  async createBooking(tutorId, date, time) {
+    await doPost("/api/bookings/createBooking", { tutorID: tutorId, date, time });
   }
 }
 
