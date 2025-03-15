@@ -56,7 +56,7 @@ router.post("/tutors/:tutorId/availability", (req, res) => {
 })
 
 router.post("/tutors/:tutorId/subject", (req, res) => {
-  database.updateTutorSubject(req.params.tutorId, req.body.newBio);
+  database.updateTutorSubject(req.params.tutorId, req.body.newSubject);
 
   res.sendStatus(200);
 })
@@ -77,6 +77,38 @@ router.post("/users/createUsers", (req, res) => {
 
 router.post("/users/:userID/workenessPt2", (req, res) => {
   database.updateUserPronouns(req.params.userID, req.body.newPronouns);
+
+  res.sendStatus(200);
+})
+
+
+router.post("/bookings/:bookingID/cancelled", (req, res) => {
+  database.cancelBooking(req.params.bookingID);
+
+  res.sendStatus(200);
+})
+
+router.post("/bookings/createBooking", (req, res) => {
+  const {date, time, tutorID} = req.body;
+  database.addBooking(date, time, tutorID);
+
+  res.sendStatus(200);
+})
+
+router.post("/bookings/:bookingID/bookings/:userID", (req, res) => {
+  database.addUsertoBooking(req.params.bookingID, req.params.userID);
+
+  res.sendStatus(200);
+})
+
+router.post("/bookings/:bookingID/bookings/:userID", (req,res) => {
+  database.removeUserfromBooking(req.params.bookingID, req.params.userID);
+
+  res.sendStatus(200);
+})
+
+router.post("/bookings/:bookingID/changeTime", (req, res) => {
+  database.changeTimeBooking(req.params.bookingID, req.body.date, req.body.time)
 
   res.sendStatus(200);
 })

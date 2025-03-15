@@ -28,8 +28,9 @@ type User = {
 }
 
 type Bookings = {
+  id: number;
   date: string;
   time: string;
   tutorID: number;
-  listOfUsers: string[];
+  listOfUsers: number[];
 }
