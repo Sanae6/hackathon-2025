@@ -2,7 +2,8 @@ type DatabaseSchema = {
   tutors: Tutor[],
   users: User[],
   bookings: Bookings[],
-  nextID: number
+  nextTutorID: number,
+  nextUserID: number,
 }
 
 type Tutor = {

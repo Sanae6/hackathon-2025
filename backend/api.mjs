@@ -31,9 +31,16 @@ router.post("/tutors/:tutorId/wokeness", (req, res) => {
   res.sendStatus(200);
 })
 
-router.post("/tutors/create", (req, res) =>{
-  const {firstName, lastName, age, gpa, subject, pronouns} = req.body
+router.post("/tutors/createTutor", (req, res) => {
+  const {firstName, lastName, age, gpa, subject, pronouns} = req.body;
   database.createTutor(firstName, lastName, age, gpa, subject, pronouns);
+
+  res.sendStatus(200);
+})
+
+router.post("/tutors/createTutor", (req, res) => {
+  const {firstName, lastName, pronouns} = req.body;
+  database.createUser(firstName, lastName, pronouns);
 
   res.sendStatus(200);
 })

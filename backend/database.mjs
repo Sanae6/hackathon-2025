@@ -8,7 +8,8 @@ let database = {
   tutors: [],
   users: [],
   bookings: [],
-  nextID: 0,
+  nextTutorID: 0,
+  nextUserID: 0,
 };
 
 if (existsSync(databaseFilename))
@@ -34,10 +35,16 @@ export function updateTutorPronouns(id, pronouns) {
     tutor.pronouns = pronouns;
 }
 
-export function createTutor(firstName, lastName, age, gpa, subject, pronouns){
-  const tutor = {firstName, lastName, age, gpa, subject, pronouns, description: "", availability: "", rating: undefined, tutorID: database.nextID ++};
+export function createTutor(firstName, lastName, age, gpa, subject, pronouns) {
+  const tutor = {firstName, lastName, age, gpa, subject, pronouns, description: "", availability: "", rating: undefined, tutorID: database.nextTutorID ++};
   database.tutors.push(tutor);
-  save()
+  save();
+}
+
+export function createUser(firstName, lastName, pronouns) {
+  const user = {firstName, lastName, pronouns, userID: database.nextUserID ++};
+  database.users.push(user);
+  save();
 }
 
 export default undefined;
