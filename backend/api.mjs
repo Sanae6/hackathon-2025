@@ -31,8 +31,32 @@ router.post("/tutors/:tutorId/wokeness", (req, res) => {
   res.sendStatus(200);
 })
 
+router.post("/tutors/:tutorId/rating", (req, res) => {
+  database.updateTutorRating(req.params.tutorId, req.body.newRating);
+
+  res.sendStatus(200);
+})
+
+router.post("/tutors/:tutorId/gpa", (req, res) => {
+  database.updateTutorGPA(req.params.tutorId, req.body.newGPA);
+
+  res.sendStatus(200);
+})
+
+router.post("/tutors/:tutorId/bio", (req, res) => {
+  database.updateTutorDescription(req.params.tutorId, req.body.newBio);
+
+  res.sendStatus(200);
+})
+
 router.post("/tutors/:tutorId/availability", (req, res) => {
   database.updateTutorAvailability(req.params.tutorId, req.body.newAvailability);
+
+  res.sendStatus(200);
+})
+
+router.post("/tutors/:tutorId/subject", (req, res) => {
+  database.updateTutorSubject(req.params.tutorId, req.body.newBio);
 
   res.sendStatus(200);
 })
