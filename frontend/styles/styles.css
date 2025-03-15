@@ -286,3 +286,93 @@ body {
         padding: 10px;
     }
 }
+
+
+/* Booking page css down below */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: none;
+}
+
+.booking-container {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 600px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.booking-container:hover {
+    transform: scale(1.02);
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+}
+
+thead {
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+td, th {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 16px;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #e3f2fd;
+    transition: background 0.3s;
+}
+
+.cancel-btn {
+    background: linear-gradient(90deg, #ff4d4d, #ff0000);
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.cancel-btn:hover {
+    background: linear-gradient(90deg, #cc0000, #990000);
+    transform: scale(1.05);
+}
+
+/* Style for participants column */
+td:nth-child(4) {
+    text-align: left;
+    font-weight: bold;
+    color: #444;
+    font-size: 14px;
+}
