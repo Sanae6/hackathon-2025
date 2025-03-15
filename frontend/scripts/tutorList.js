@@ -54,9 +54,7 @@ function resetSubjects() {
 
 let subjectFilter = document.querySelector("#subjectFilter > div");
 subjectFilter.addEventListener("click", (event) => {
-  let eventTarget = (new String(event.target)).toString();
-  
-  if (eventTarget === "[object HTMLButtonElement]") {
+  if (event.target instanceof HTMLButtonElement) {
     let subject = event.target.parentNode.querySelector("p").textContent;
     
     let subjectListIndex = findEntry(subects, subject);
@@ -76,7 +74,7 @@ let avalibilityFilter = document.querySelector("#avalibilityFilter > div");
 avalibilityFilter.addEventListener("click", (event) => {
   let eventTarget = (new String(event.target)).toString();
   
-  if (eventTarget === "[object HTMLButtonElement]") {
+  if (event.target instanceof HTMLButtonElement) {
     let day = event.target.parentNode.querySelector("p").textContent;
     
     let dayListIndex = findEntry(daysOfTheWeek, day);
