@@ -115,7 +115,7 @@
   display: 1 / 2 / 3 / 4;
   display: flex;
   flex-flow: column nowrap;
-  row-gap: 1vh;
+  justify-content: space-between;
 }
 
 .tutorInfo > h1 {
@@ -125,6 +125,7 @@
 .tutorInfo > h2 {
   margin: 0px;
   padding: 0px;
+  font-size: 120%;
 }
 
 .tutorInfo > .stars {
@@ -133,12 +134,12 @@
 }
 
 .tutorInfo > .stars > img {
-  height: 5vh;
+  height: 4vh;
   width: auto;
 }
 
 .tutorInfo > p {
-  font-size: 200%;
+  font-size: 150%;
 }
 
 .tutorEntry > .description {
