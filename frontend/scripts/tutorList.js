@@ -1,5 +1,6 @@
 // FILTER PART
 
+
 function entry(name) {
   return {
     name: name,
@@ -15,7 +16,12 @@ function findEntry(list, name) {
   }
 }
 
-let subects = [entry("Math"), entry("Computer Science"), entry("Physics"), entry("Economics")];
+let subects = [];
+
+for (const subject of SUBJECTS) {
+  subects.push(entry(subject));
+}
+
 let daysOfTheWeek = [entry("Monday"), entry("Tuesday"), entry("Wednesday"), entry("Thursday"), entry("Friday"), entry("Saturday"), entry("Sunday")];
 
 

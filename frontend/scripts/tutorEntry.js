@@ -25,13 +25,14 @@ function TutorEntry(firstName, lastName, pronouns, age, subject, ratings, descri
   `;
 }
 
-let tutors = [TutorEntry("Tim", "Apple", "He/Him", 18, "Math", 4, "Please Bring fortnite back to the app store")];
+let tutors = [];
 
 
-document.querySelector("#tutors > div").addEventListener("load", (event) => {
-  event.target.innerHTML = "";
-  console.log("working");
+window.addEventListener("load", (event) => {
+  let tutorEntryList = document.querySelector("#tutors > div");
+  tutorEntryList.innerHTML = "";
+  
   for (i = 0; i < tutors.length; i++) {
-    event.target.innerHTML += tutors[i];
+    tutorEntryList.innerHTML += tutors[i];
   }
 });
