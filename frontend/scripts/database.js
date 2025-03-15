@@ -1,5 +1,5 @@
 async function doGet(url) {
-  return await (await fetch()).json();
+  return await (await fetch(url)).json();
 }
 async function doPost(url, json) {
   await fetch(url, {
@@ -16,7 +16,7 @@ const api = {
     return await doGet(`/api/tutors/login?firstName=${encodeURI(firstName)}&lastName=${encodeURI(lastName)}`)
   },
   async loginUser(firstName, lastName) {
-    return await doGet(`/api/tutors/login?firstName=${encodeURI(firstName)}&lastName=${encodeURI(lastName)}`)
+    return await doGet(`/api/users/login?firstName=${encodeURI(firstName)}&lastName=${encodeURI(lastName)}`)
   },
 
   async createUser(firstName, lastName, pronouns) {

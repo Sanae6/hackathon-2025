@@ -57,9 +57,13 @@
         <script>
             async function submit(event) {
                 event.preventDefault();
-                document.getElementById("submit").disabled = true;
-                await api.createTutor(firstName.value, lastName.value, age.value, gpa.value, subject.value, pronouns.value);
-                location.href = "/login.html"
+                try {
+                    document.getElementById("submit").disabled = true;
+                    await api.createTutor(firstName.value, lastName.value, age.value, gpa.value, subject.value, pronouns.value);
+                    location.href = "/login.html"
+                } catch (error) {
+                    document.getElementById("error").innerText = "Incorrect credentials!";
+                }
             }
             form.addEventListener("submit", submit);
         </script>

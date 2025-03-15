@@ -27,6 +27,9 @@ function save() {
  */
 
 //Getting Objects from database Fuctions
+export function getTutors() {
+  return database.tutors;
+}
 export function getTutorById(id) {
   const numId = Number(id);
   return database.tutors.find(tutor => tutor.tutorID === numId);
@@ -38,7 +41,7 @@ export function getUserById(id) {
   const numId = Number(id);
   return database.users.find(user => user.userID === numId);
 }
-export function getUserByName(fistName, lastName) {
+export function getUserByName(firstName, lastName) {
   return database.users.find((user => user.firstName === firstName && user.lastName === lastName))
 }
 export function getBooking(id) {

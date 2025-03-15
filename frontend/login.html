@@ -28,21 +28,33 @@
                 <input type="checkbox" id="isTutor" name="isTutor">
             </div>
             <button id="submit" type="submit" class="login-btn">Login</button>
+            <div id="error" class="form-group error"></div>
         </form>
         <div class="signup-link">
-            <p>Don't have an account? <a href="signupTutor.html">Sign up as a tutor</a> or <a href="signup.html">sign up as a student</a></p>
+            <p>Don't have an account? <a href="signupTutor.html">Sign up as a tutor</a> or <a href="signup.html">sign up
+                    as a student</a></p>
         </div>
 
         <script>
             async function submit(event) {
                 event.preventDefault();
-                document.getElementById("submit").disabled = true;
-                const isATutor = isTutor.value;
-                if (isATutor) {
-                    const tutorInfo = await api.loginTutor(firstName.value, lastName.value);
-                    tutorInfo.
+                try {
+                    const isATutor = isTutor.checked;
+                    console.log(isATutor);
+                    if (isATutor) {
+                        const tutorInfo = await api.loginTutor(firstName.value, lastName.value);
+                        console.log(tutorInfo);
+                        localStorage.setItem("info", JSON.stringify(Object.assign(tutorInfo, { tutor: true })))
+                    } else {
+                        const userInfo = await api.loginUser(firstName.value, lastName.value);
+                        console.log(userInfo);
+                        localStorage.setItem("info", JSON.stringify(Object.assign(userInfo, { tutor: false })))
+                    }
+                    location.href = "/tutorProfile.html";
+                } catch (error) {
+                    console.error(error);
+                    document.getElementById("error").innerText = "Incorrect credentials!";
                 }
-                location.href = "/tutorProfile.html";
             }
             form.addEventListener("submit", submit);
         </script>

@@ -6,23 +6,19 @@ const router = express.Router();
 
 router.use(bodyParser.json())
 
-router.get("/test/:testAwesome", (req, res) => {
-  res.send({
-    hello: "world",
+router.get("/tutors", (req, res) => {
+  res.send(database.getTutors());
+})
 
-    ...req.params
-  });
+router.get("/tutors/login", (req, res) => {
+  const tutor = database.getTutorByName(req.query.firstName, req.query.lastName);
+
+  res.send(tutor);
 })
 
 router.get("/tutors/:tutorId", (req, res) => {
   console.log(req.params.tutorId);
   const tutor = database.getTutorById(req.params.tutorId);
-
-  res.send(tutor);
-})
-
-router.get("/tutors/login", (req, res) => {
-  const tutor = database.getTutorByName(req.query.firstName, req.query.lastName);
 
   res.send(tutor);
 })
