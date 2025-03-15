@@ -96,12 +96,18 @@
   height: 25vh;
   width: 100%;
   display: grid;
-  grid-template: 1fr / 1fr 1fr;
+  grid-template: 1fr / 20% 1fr;
 }
 
 .tutorEntry > img {
   grid-area: 1 / 1 / 2 / 2;
+  justify-self: center;
+  align-self: center;
   height: 20vh;
   width: auto;
+}
+
+.tutorEntry > h1 {
+  
 }
 
