@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-import database from "./database";
+import database from "./database.mjs";
 
 const router = express.Router();
 
